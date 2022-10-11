@@ -9,14 +9,16 @@ class Pages extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Home'
+            'title' => 'Welcome',
+            'header_background' => 'transparent'
         ];
-        return  view('pages/home', $data);
+        return  view('pages/base', $data);
     }
 
-    public function show($page = "home")
+    public function show($page = "base")
     {
         $data['title'] = ucfirst($page); // Capitalize the first letter
+        $data['header_background'] = 'var(--primary-color)';
 
         if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
