@@ -1,9 +1,5 @@
 <?= $this->extend('templates/template') ?>
 
-<?= $this->section('head') ?>
-
-<?= $this->endSection() ?>
-
 <?= $this->section('content') ?>
 
 <!-- Code Here -->
