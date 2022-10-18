@@ -20,7 +20,10 @@
                 <td><?= $event['judul_event'] ?></td>
                 <td><?= date_format(date_create($event['waktu_event']), "d F Y, H:i")." WIB" ?></td>
                 <td><?= $event['tempat_event'] ?></td>
-                <td>Operasi</td>
+                <td>
+                    <button type="button" class="btn btn-primary card-text-font w-100\" onClick="">Edit</button>
+                    <button type="button" class="btn btn-danger card-text-font w-100 mt-1\" onClick="">Hapus</button>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
