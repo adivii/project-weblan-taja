@@ -16,45 +16,29 @@ class AccountController extends BaseController
 
         $result = $model->find($username);
 
-        if(count($result) > 0) {
-            if(password_verify($password, $result['password'])){
-                if($result['level'] == 'Petani') {
-                    return redirect()->route('/base');
+        if (count($result) > 0) {
+            if (password_verify($password, $result['password'])) {
+                if ($result['level'] == 'Petani') {
+                    session()->set(
+                        ['level' => 'farmer']
+                    );
+                    return redirect()->to('/farmer/home');
+                } else if ($result['level'] == 'Admin') {
+                    session()->set(
+                        ['level' => 'admin']
+                    );
+                    return redirect()->to('/admin/event');
                 } else {
-                    return redirect()->route('/login');
+                    return redirect()->to('/login');
                 }
             } else {
-                return redirect()->route('/login');
+                return redirect()->to('/login');
             }
         }
     }
 
-    public function farmer_add()
-    {
-        $model = new AccountModel();
-
-        if(!$this->validate([
-            'username' => 'required',
-            'password' => 'required',
-            'password-re' => 'required'
-        ])){
-            return redirect()->route('/register');
-        }
-
-        $model = new AccountModel();
-        
-        $data = [
-            'username' => $this->request->getPost('username'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'level' => 'Petani'
-        ];
-        
-        if($this->request->getPost('password') == $this->request->getPost('password-re')) {
-            $model->save($data);
-    
-            return redirect()->route('/login');
-        } else {
-            return redirect()->route('/register');
-        }
+    public function logout(){
+        session()->destroy();
+        return redirect()->to('/login');
     }
 }

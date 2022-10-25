@@ -14,8 +14,7 @@
         <div class="card" style="border-radius: 1rem;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="assets/images/background-home.jpeg"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              <img src="assets/images/background-home.jpeg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
@@ -28,10 +27,16 @@
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your account</h5>
-
+                  <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <h4>Check your entries</h4>
+                      </hr />
+                      <?php echo session()->getFlashdata('error'); ?>
+                    </div>
+                  <?php endif; ?>
                   <div class="form-outline mb-4">
                     <input type="text" id="username" name="username" class="form-control form-control-lg" />
-                    <label class="form-label" for="username">Email address</label>
+                    <label class="form-label" for="username">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
@@ -45,7 +50,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <input class="btn btn-dark btn-lg btn-block" type="submit">Register</input>
+                    <input class="btn btn-dark btn-lg btn-block" type="submit" value="Register">
                   </div>
 
                   <a href="#!" class="small text-muted">Terms of use.</a>

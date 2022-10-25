@@ -14,11 +14,19 @@ class AdminController extends BaseController
 
     public function event_list()
     {
+        if (null === session()->get('level')) {
+            return redirect()->to('/login');
+        } else {
+            if (session()->get('level') !== 'admin') {
+                return redirect()->to('/login');
+            }
+        }
+
         $event_model = new EventModel();
         $events = $event_model->findall();
 
         $data['events'] = $events;
-        
+
         return  view('admin/event_list', $data);
     }
 }

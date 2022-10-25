@@ -27,7 +27,7 @@
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
             <a class="nav-link ms-3" style="color: #fefefe;" href="/about">About</a>
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-            <a class="nav-link ms-3" style="color: #fefefe;" href="/login">Login</a>
+            <a class="nav-link ms-3" style="color: #fefefe;" href="/logout">Logout</a>
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
         </div>
     </div>
