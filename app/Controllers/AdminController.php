@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AccountModel;
 use App\Models\EventModel;
 
 class AdminController extends BaseController
@@ -17,8 +18,11 @@ class AdminController extends BaseController
             }
         }
 
+        $account_model = new AccountModel();
         $event_model = new EventModel();
-        $events = $event_model->findall();
+
+        $farmers = $account_model->where('level = \'Petani\'')->findAll();
+        $events = $event_model->where('waktu_event >= DATE(NOW())')->findall();
 
         $data['title'] = 'Dashboard';
         if ($events) {
@@ -26,6 +30,13 @@ class AdminController extends BaseController
         } else {
             $data['events_count'] = 0;
         }
+
+        if($farmers) {
+            $data['farmers_count'] = count($farmers);
+        } else {
+            $data['farmers_count'] = 0;
+        }
+
         return  view('admin/dashboard', $data);
     }
 
@@ -40,7 +51,7 @@ class AdminController extends BaseController
         }
 
         $event_model = new EventModel();
-        $events = $event_model->findall();
+        $events = $event_model->where('waktu_event >= DATE(NOW())')->findall();
 
         $data['title'] = 'Event List';
         $data['events'] = $events;
