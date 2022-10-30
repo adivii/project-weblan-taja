@@ -1,4 +1,4 @@
-<?= $this->extend('templates/admin_template') ?>
+<?= $this->extend('templates/template') ?>
 
 <?= $this->section('content') ?>
 
@@ -6,7 +6,7 @@
 
 <div class="container-fluid w-100" style="padding: 60px 100px 0 100px">
     <table class="table">
-        <thead>
+        <thead style="background-color: var(--color-three); color: white;">
             <tr>
                 <th scope="col">Judul</th>
                 <th scope="col">Waktu</th>
@@ -21,8 +21,8 @@
                 <td><?= date_format(date_create($event['waktu_event']), "d F Y, H:i")." WIB" ?></td>
                 <td><?= $event['tempat_event'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary card-text-font w-100\" onClick="">Edit</button>
-                    <button type="button" class="btn btn-danger card-text-font w-100 mt-1\" onClick="">Hapus</button>
+                    <button type="button" class="btn btn-primary card-text-font\" onClick="">Edit</button>
+                    <button type="button" class="btn btn-danger card-text-font  mt-1\" onClick="">Hapus</button>
                 </td>
             </tr>
             <?php } ?>

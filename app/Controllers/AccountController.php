@@ -20,12 +20,14 @@ class AccountController extends BaseController
             if (password_verify($password, $result['password'])) {
                 if ($result['level'] == 'Petani') {
                     session()->set(
-                        ['level' => 'farmer']
+                        ['user' => $username,
+                        'level' => 'farmer']
                     );
                     return redirect()->to('/farmer/home');
                 } else if ($result['level'] == 'Admin') {
                     session()->set(
-                        ['level' => 'admin']
+                        ['user' => 'admin',
+                        'level' => 'admin']
                     );
                     return redirect()->to('/admin/event');
                 } else {

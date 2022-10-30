@@ -25,6 +25,7 @@ class AdminController extends BaseController
         $event_model = new EventModel();
         $events = $event_model->findall();
 
+        $data['title'] = 'Event List';
         $data['events'] = $events;
 
         return  view('admin/event_list', $data);
