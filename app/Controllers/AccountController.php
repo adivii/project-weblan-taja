@@ -16,7 +16,7 @@ class AccountController extends BaseController
 
         $result = $model->find($username);
 
-        if (count($result) > 0) {
+        if ($result) {
             if (password_verify($password, $result['password'])) {
                 if ($result['level'] == 'Petani') {
                     session()->set(
@@ -34,8 +34,12 @@ class AccountController extends BaseController
                     return redirect()->to('/login');
                 }
             } else {
+                session()->setFlashdata('error', 'Password salah!');
                 return redirect()->to('/login');
             }
+        }else{
+            session()->setFlashdata('error', 'Username tidak ditemukan!');
+            return redirect()->to('/login');
         }
     }
 

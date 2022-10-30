@@ -42,7 +42,7 @@ $routes->get('/logout', 'AccountController::logout');
 $routes->post('/farmer/add', 'FarmerController::farmer_add');
 $routes->get('/farmer/home', 'FarmerController::index');
 // $routes->get('/farmer/(:any)', 'FarmerController::show/$1');
-$routes->get('/admin', 'AdminController::index');
+$routes->get('/admin/dashboard', 'AdminController::index');
 $routes->get('/admin/event', 'AdminController::event_list');
 $routes->get('/(:any)', 'Pages::show/$1');
 
