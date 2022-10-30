@@ -19,15 +19,37 @@
     </a>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mainSidebar" aria-labelledby="mainSidebarLabel" style="background-color: var(--color-two); border: none;">
         <div class="offcanvas-header">
-            <a href="/base" style="text-decoration: none;"><h4 class="offcanvas-title" id="mainSidebarLabel" style="color: #fefefe;font-weight: bold; text-decoration: none;">TAJA</h4></a>
+            <a href="/base" style="text-decoration: none;">
+                <h4 class="offcanvas-title" id="mainSidebarLabel" style="color: #fefefe;font-weight: bold; text-decoration: none;">TAJA</h4>
+            </a>
         </div>
         <div class="offcanvas-body">
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-            <a class="nav-link ms-3" style="color: #fefefe;" href="#">Home</a>
+            <a class="nav-link ms-3" style="color: #fefefe;" href="/base">Home</a>
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
             <a class="nav-link ms-3" style="color: #fefefe;" href="/about">About</a>
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-            <a class="nav-link ms-3" style="color: #fefefe;" href="/logout">Logout</a>
+            <?php if (null === session()->get('level')) { ?>
+                <a class="nav-link ms-3" style="color: #fefefe;" href="/login">Login</a>
+            <?php } else { ?>
+                <?php if (session()->get('level') === 'admin') { ?>
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/dashboard">Dashboard Admin</a>
+                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/event">Event List</a>
+                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
+                <?php } ?>
+                <li class="nav-link dropdown ms-3">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" style="color: #fefefe;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?= session()->get('user') ?>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <!-- <li>
+                            <hr class="dropdown-divider">
+                        </li> -->
+                    </ul>
+                </li>
+            <?php } ?>
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
         </div>
     </div>

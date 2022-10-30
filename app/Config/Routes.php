@@ -36,13 +36,13 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
-$routes->get('/base', 'Pages::index', ['as' => 'base']);
+$routes->get('/base', 'Pages::index');
 $routes->post('/verify', 'AccountController::verify');
 $routes->get('/logout', 'AccountController::logout');
 $routes->post('/farmer/add', 'FarmerController::farmer_add');
 $routes->get('/farmer/home', 'FarmerController::index');
 // $routes->get('/farmer/(:any)', 'FarmerController::show/$1');
-$routes->get('/admin', 'AdminController::index');
+$routes->get('/admin/dashboard', 'AdminController::index');
 $routes->get('/admin/event', 'AdminController::event_list');
 $routes->get('/(:any)', 'Pages::show/$1');
 
