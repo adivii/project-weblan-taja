@@ -29,7 +29,7 @@ class AccountController extends BaseController
                         ['user' => 'admin',
                         'level' => 'admin']
                     );
-                    return redirect()->to('/admin/event');
+                    return redirect()->to('/admin/dashboard');
                 } else {
                     return redirect()->to('/login');
                 }
