@@ -25,11 +25,11 @@
         </div>
         <div class="offcanvas-body">
             <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-            <a class="nav-link ms-3" style="color: #fefefe;" href="/base">Home</a>
-            <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-            <a class="nav-link ms-3" style="color: #fefefe;" href="/about">About</a>
-            <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
             <?php if (null === session()->get('level')) { ?>
+                <a class="nav-link ms-3" style="color: #fefefe;" href="/base">Home</a>
+                <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
+                <a class="nav-link ms-3" style="color: #fefefe;" href="/about">About</a>
+                <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
                 <a class="nav-link ms-3" style="color: #fefefe;" href="/login">Login</a>
             <?php } else { ?>
                 <?php if (session()->get('level') === 'admin') { ?>

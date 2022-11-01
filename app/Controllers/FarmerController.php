@@ -47,10 +47,9 @@ class FarmerController extends BaseController
                 ]
             ],
             'password-re' => [
-                'rules' => 'required|min_length[8]|matches[password]',
+                'rules' => 'required|matches[password]',
                 'errors' => [
                     'required' => 'Password wajib diisi!',
-                    'min_length' => 'Panjang Password minimal 8 digit!',
                     'matches' => 'Password harus sesuai!'
                 ]
             ]
@@ -74,5 +73,16 @@ class FarmerController extends BaseController
         } else {
             return redirect()->to('/register');
         }
+    }
+
+    public function get_farmer()
+    {
+        $farmer_model = new AccountModel();
+        $events = $farmer_model->where('level = \'Petani\'')->findall();
+
+        $data['title'] = 'Event List';
+        $data['events'] = $events;
+
+        return  $data;
     }
 }
