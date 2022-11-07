@@ -46,4 +46,9 @@ class AdminController extends BaseController
 
         return view('admin/event_list', $event_control->get_event_history());
     }
+
+    public function event_create() {
+        $data['title'] = 'Create Event';
+        return view('admin/event_create', $data);
+    }
 }
