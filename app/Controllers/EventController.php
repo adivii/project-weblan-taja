@@ -40,4 +40,18 @@ class EventController extends BaseController
     
         return redirect()->to('/admin/dashboard');
     }
+    public function save()
+{
+    $this->EventModel->save([
+        'judul' => $this->request->getVar('judul'),
+        'waktu' => $this->request->getVar('waktu'),
+        'tempat' => $this->request->getVar('tempat')
+        ]);
+}
+
+public function delete($id)
+{
+    $this->EventModel->delete($id);
+    return redirect()->to('/event');
+}
 }
