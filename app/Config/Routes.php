@@ -42,13 +42,16 @@ $routes->get('/logout', 'AccountController::logout');
 $routes->post('/farmer/add', 'FarmerController::farmer_add');
 $routes->get('/farmer/home', 'FarmerController::index');
 // $routes->get('/farmer/(:any)', 'FarmerController::show/$1');
+$routes->get('/penyuluh/dashboard', 'PenyuluhController::dashboard');
+$routes->post('/penyuluh/add', 'PenyuluhController::save');
 $routes->get('/admin/dashboard', 'AdminController::index');
-$routes->get('/admin/event', 'AdminController::event_list');
-$routes->get('/admin/event/create', 'AdminController::event_create');
+$routes->get('/event', 'EventController::event_list');
+$routes->get('/event/create', 'EventController::event_create');
 $routes->get('/admin/event/edit/(:num)', 'AdminController::event_update/$1');
 $routes->post('/admin/event/update/(:num)', 'EventController::update/$1');
 $routes->post('/admin/event/save', 'EventController::save');
 $routes->delete('/admin/event/delete/(:num)', 'EventController::delete_event/$1');
+$routes->get('/admin/penyuluh/add', 'AdminController::penyuluh_add');
 $routes->get('/(:any)', 'Pages::show/$1');
 
 /*
