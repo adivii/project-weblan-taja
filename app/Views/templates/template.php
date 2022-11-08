@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="/assets/images/wheat-icons.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/eff27b1688.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/fonts.css">
     <link rel="stylesheet" href="/styles/color.css">
 </head>
@@ -35,12 +36,7 @@
                 <?php if (session()->get('level') === 'admin') { ?>
                     <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/dashboard">Dashboard Admin</a>
                     <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-                    <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/penyuluh/add">Add Penyuluh</a>
-                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-                <?php } else if(session()->get('level') === 'penyuluh'){ ?>
-                    <a class="nav-link ms-3" style="color: #fefefe;" href="/penyuluh/dashboard">Dashboard Admin</a>
-                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-                    <a class="nav-link ms-3" style="color: #fefefe;" href="/event">Event List</a>
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/event">Event List</a>
                     <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
                 <?php } ?>
                 <li class="nav-link dropdown ms-3">
