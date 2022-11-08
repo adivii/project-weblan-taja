@@ -51,4 +51,10 @@ class AdminController extends BaseController
         $data['title'] = 'Create Event';
         return view('admin/event_create', $data);
     }
+
+    public function event_update($id) {
+        $event_control = new EventController();
+
+        return view('admin/event_edit', $event_control->get_one_event($id));
+    }
 }
