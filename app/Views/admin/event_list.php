@@ -21,10 +21,10 @@
                     <td><?= date_format(date_create($event['waktu_event']), "d F Y, H:i") . " WIB" ?></td>
                     <td><?= $event['tempat_event'] ?></td>
                     <td>
-                        <button type="button" class="btn btn-primary card-text-font\" onClick=""><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                        <button type="button" class="btn btn-primary card-text-font\" onClick="">Edit</button>
                         <form action="/admin/event/delete/<?= $event['id'] ?>" method="post">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Hapus</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
                         </form>
                     </td>
                 </tr>
