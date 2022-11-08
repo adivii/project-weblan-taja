@@ -20,7 +20,7 @@ class DbEvent extends Migration
                 'constraint' => '255',
             ],
             'waktu_event' => [
-                'type'       => 'DATETIME',
+                'type'       => 'DATE',
             ],
             'tempat_event' => [
                 'type' => 'TEXT',

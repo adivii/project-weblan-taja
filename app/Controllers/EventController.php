@@ -23,10 +23,20 @@ class EventController extends BaseController
         return  $data;
     }
 
+    public function get_one_event($id) {
+        $event_model = new EventModel();
+        $event = $event_model->find($id);
+
+        $data['title'] = 'Event Edit';
+        $data['event'] = $event;
+
+        return  $data;
+    }
+
     public function get_event_history()
     {
         $event_model = new EventModel();
-        $events = $event_model->findall();
+        $events = $event_model->orderBy('waktu_event', 'DESC')->findall();
 
         $data['title'] = 'Event List';
         $data['events'] = $events;
@@ -42,10 +52,29 @@ class EventController extends BaseController
     }
 
     public function save(){
-        $this->EventModel->save([
-            'judul' => $this->request->getVar('judul'),
-            'waktu' => $this->request->getVar('waktu'),
-            'tempat' => $this->request->getVar('tempat')]);
+        $model = new EventModel();
+
+        $data = [
+            'judul_event' => $this->request->getPost('judul_event'),
+            'waktu_event' => $this->request->getPost('waktu_event'),
+            'tempat_event' => $this->request->getPost('tempat_event'),];
+
+        $model->save($data);
+
+        return redirect()->to('/admin/dashboard');
+    }
+
+    public function update($id){
+        $model = new EventModel();
+
+        $data = [
+            'judul_event' => $this->request->getPost('judul_event'),
+            'waktu_event' => $this->request->getPost('waktu_event'),
+            'tempat_event' => $this->request->getPost('tempat_event'),];
+
+        $model->update($id, $data);
+
+        return redirect()->to('/admin/dashboard');
     }
 
     public function delete($id){

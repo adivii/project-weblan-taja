@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Upcoming Events</h5>
                     <p class="card-text"><?= $events_count ?> events</p>
-                    <a href="#" class="btn btn-success" style="background-color: var(--color-three); border-color: var(--color-three)">Add New</a>
+                    <a href="/admin/event/create" class="btn btn-success" style="background-color: var(--color-three); border-color: var(--color-three)">Add New</a>
                 </div>
             </div>
         </div>
