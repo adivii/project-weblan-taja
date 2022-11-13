@@ -25,7 +25,7 @@ class DbPenyuluh extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '15',
             ],
-            'wilayah_kerja' => [
+            'wkpp' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
