@@ -36,7 +36,12 @@
                 <?php if (session()->get('level') === 'admin') { ?>
                     <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/dashboard">Dashboard Admin</a>
                     <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
-                    <a class="nav-link ms-3" style="color: #fefefe;" href="/admin/event">Event List</a>
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/penyuluh/add">Add Penyuluh</a>
+                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
+                <?php } else if (session()->get('level') === 'penyuluh') { ?>
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/penyuluh/dashboard">Dashboard Admin</a>
+                    <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
+                    <a class="nav-link ms-3" style="color: #fefefe;" href="/event">Event List</a>
                     <hr style="height: 3px; border: none; color: #fefefe; background-color: white;">
                 <?php } ?>
                 <li class="nav-link dropdown ms-3">
@@ -44,6 +49,7 @@
                         <?= session()->get('user') ?>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         <!-- <li>
                             <hr class="dropdown-divider">

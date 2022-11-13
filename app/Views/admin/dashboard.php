@@ -10,7 +10,7 @@
             <div class="card" style="width: 18rem;height: 10rem;">
                 <div class="card-body">
                     <h5 class="card-title">Active Account</h5>
-                    <p class="card-text"><?= $penyuluh_count + $farmers_count ?> events</p>
+                    <p class="card-text"><?= $penyuluh_count + $farmers_count ?> Accounts</p>
                     <!-- <a href="/admin/event/create" class="btn btn-success" style="background-color: var(--color-three); border-color: var(--color-three)">Add New</a> -->
                 </div>
             </div>
