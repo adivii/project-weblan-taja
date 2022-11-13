@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="waktu_event" class="form-label">Waktu</label>
-            <input type="date" class="form-control" name="waktu_event" id="waktu_event">
+            <input type="date" class="form-control" name="waktu_event" id="waktu_event" min="<?= date('Y-m-d') ?>">
         </div>
         <div class="mb-3">
             <label for="tempat_event">Tempat</label>
