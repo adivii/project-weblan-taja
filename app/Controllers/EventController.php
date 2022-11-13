@@ -23,7 +23,7 @@ class EventController extends BaseController
         }
 
         $data['title'] = 'Create Event';
-        return view('admin/event_create', $data);
+        return view('penyuluh/event/event_create', $data);
     }
 
     public function event_list() {
@@ -37,7 +37,7 @@ class EventController extends BaseController
 
         $event_control = new EventController();
 
-        return view('admin/event_list', $event_control->get_event_history());
+        return view('penyuluh/event/event_list', $event_control->get_event_history());
     }
 
     public function get_event()
@@ -73,14 +73,6 @@ class EventController extends BaseController
         return  $data;
     }
 
-    public function delete_event($id)
-    {
-        $event_model = new EventModel();
-        $event_model->delete($id);
-
-        return redirect()->to('/admin/dashboard');
-    }
-
     public function save()
     {
         $model = new EventModel();
@@ -94,6 +86,20 @@ class EventController extends BaseController
         $model->save($data);
 
         return redirect()->to('/penyuluh/dashboard');
+    }
+
+    public function event_update($id) {
+        if (null === session()->get('level')) {
+            return redirect()->to('/login');
+        } else {
+            if (session()->get('level') !== 'penyuluh') {
+                return redirect()->to('/login');
+            }
+        }
+
+        $event_control = new EventController();
+
+        return view('penyuluh/event/event_edit', $event_control->get_one_event($id));
     }
 
     public function update($id)
@@ -113,7 +119,8 @@ class EventController extends BaseController
 
     public function delete($id)
     {
-        $this->EventModel->delete($id);
+        $model = new EventModel();
+        $model->delete($id);
         return redirect()->to('/event');
     }
 }

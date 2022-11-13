@@ -8,18 +8,17 @@
 
 
 <section class="vh-100" style="background-color: var(--color-two);">
-  <div class="container py-5 h-100">
+  <div class="container-fluid py-5 h-100 w-100" style="overflow-y: scroll;">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem;">
+        <div class="card" style="border-width : 0;border-radius: 1rem;">
           <div class="row g-0">
-            <div class="col-md-6 col-lg-5 d-none d-md-block" style="background:url('/assets/images/background-home.jpeg') no-repeat;background-position: center;">
-
+            <div class="col-md-6 col-lg-5 d-none d-md-block" style="border-radius: 1rem 0 0 1rem;background:url('/assets/images/background-home.jpeg') no-repeat;background-position: -700px 0;">
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="/penyuluh/add" method="POST">
+                <form action="/penyuluh/save" method="POST">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -35,26 +34,38 @@
                     </div>
                   <?php endif; ?>
                   <div class="form-outline mb-4">
-                    <input type="text" id="username" name="username" class="form-control form-control-lg" />
                     <label class="form-label" for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control form-control-lg" />
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" name="password" class="form-control form-control-lg" />
                     <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control form-control-lg" />
                   </div>
 
                   <div class="form-outline mb-4">
+                    <label class="form-label" for="password-re">Konfirmasi Password</label>
                     <input type="password" id="password-re" name="password-re" class="form-control form-control-lg" />
-                    <label class="form-label" for="password-re">Confirm Password</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="nik">NIK</label>
+                    <input type="number" id="nik" name="nik" class="form-control form-control-lg" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="nama-lengkap">Nama Lengkap</label>
+                    <input type="text" id="nama-lengkap" name="nama-lengkap" class="form-control form-control-lg" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="nomor-telepon">Nomor Telepon</label>
+                    <input type="number" id="nomor-telepon" name="nomor-telepon" class="form-control form-control-lg" />
                   </div>
 
                   <div class="pt-1 mb-4">
                     <input class="btn btn-dark btn-lg btn-block" type="submit" value="Register">
                   </div>
-
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
                 </form>
 
               </div>

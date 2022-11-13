@@ -69,7 +69,7 @@ class PenyuluhController extends BaseController
             ]
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
-            return redirect()->to('/register');
+            return redirect()->to('/penyuluh/add');
         }
 
         $data = [
@@ -81,9 +81,9 @@ class PenyuluhController extends BaseController
         if ($this->request->getPost('password') == $this->request->getPost('password-re')) {
             $model->save($data);
 
-            return redirect()->to('/login');
+            return redirect()->to('/admin/dashboard');
         } else {
-            return redirect()->to('/register');
+            return redirect()->to('/penyuluh/add');
         }
     }
 }

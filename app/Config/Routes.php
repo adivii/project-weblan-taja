@@ -43,15 +43,15 @@ $routes->post('/farmer/add', 'FarmerController::farmer_add');
 $routes->get('/farmer/home', 'FarmerController::index');
 // $routes->get('/farmer/(:any)', 'FarmerController::show/$1');
 $routes->get('/penyuluh/dashboard', 'PenyuluhController::dashboard');
-$routes->post('/penyuluh/add', 'PenyuluhController::save');
+$routes->post('/penyuluh/save', 'PenyuluhController::save');
+$routes->get('/penyuluh/add', 'AdminController::penyuluh_add');
 $routes->get('/admin/dashboard', 'AdminController::index');
 $routes->get('/event', 'EventController::event_list');
 $routes->get('/event/create', 'EventController::event_create');
-$routes->get('/admin/event/edit/(:num)', 'AdminController::event_update/$1');
-$routes->post('/admin/event/update/(:num)', 'EventController::update/$1');
-$routes->post('/admin/event/save', 'EventController::save');
-$routes->delete('/admin/event/delete/(:num)', 'EventController::delete_event/$1');
-$routes->get('/admin/penyuluh/add', 'AdminController::penyuluh_add');
+$routes->get('/event/edit/(:num)', 'EventController::event_update/$1');
+$routes->post('/event/update/(:num)', 'EventController::update/$1');
+$routes->post('/event/save', 'EventController::save');
+$routes->delete('/event/delete/(:num)', 'EventController::delete/$1');
 $routes->get('/(:any)', 'Pages::show/$1');
 
 /*

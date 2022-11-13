@@ -41,20 +41,6 @@ class AdminController extends BaseController
         return view('admin/dashboard', $data);
     }
 
-    public function event_update($id) {
-        if (null === session()->get('level')) {
-            return redirect()->to('/login');
-        } else {
-            if (session()->get('level') !== 'penyuluh') {
-                return redirect()->to('/login');
-            }
-        }
-
-        $event_control = new EventController();
-
-        return view('admin/event_edit', $event_control->get_one_event($id));
-    }
-
     public function penyuluh_add() {
         if (null === session()->get('level')) {
             return redirect()->to('/login');
