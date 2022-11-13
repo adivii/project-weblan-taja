@@ -14,6 +14,6 @@ class AccountSeed extends Seeder
             'level' => 'Admin'
         ];
 
-        $this->db->table('account')->insert($admin);
+        $this->db->table('accounts')->insert($admin);
     }
 }
