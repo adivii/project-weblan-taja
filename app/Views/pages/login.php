@@ -21,7 +21,6 @@
                 <form action="/verify" method="POST">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
                     <img class="mx-auto d-block" src="assets/images/taja-logo.png" height="130px">
                   </div>
 
@@ -44,7 +43,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <input class="btn btn-dark btn-lg btn-block" type="submit" />
+                    <input class="btn btn-dark btn-lg btn-block" style="background-color:darkgreen" type="submit" />
                   </div>
 
                   <!-- <a class="small text-muted" href="#!">Forgot password?</a>
