@@ -44,6 +44,7 @@ $routes->get('/farmer/home', 'FarmerController::index');
 // $routes->get('/farmer/(:any)', 'FarmerController::show/$1');
 $routes->get('/penyuluh/dashboard', 'PenyuluhController::dashboard');
 $routes->get('/penyuluh/profile/(:any)', 'PenyuluhController::get_profile/$1');
+$routes->post('/penyuluh/profile/(:any)/update', 'PenyuluhController::update_profile/$1');
 $routes->post('/penyuluh/save', 'PenyuluhController::save');
 $routes->get('/penyuluh/add', 'AdminController::penyuluh_add');
 $routes->get('/admin/dashboard', 'AdminController::index');
