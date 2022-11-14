@@ -155,4 +155,25 @@ class PenyuluhController extends BaseController
 
         return view('penyuluh/profile', $data);
     }
+
+    public function update_profile($username)
+    {
+        $penyuluh_model = new PenyuluhModel();
+
+        $current_data = $penyuluh_model->find($username);
+
+        $data_penyuluh = [
+            'nik' => (trim((string) $this->request->getPost('nik')) != '') ? $this->request->getPost('nik') : $current_data['nik'],
+            'nama_lengkap' => (trim((string) $this->request->getPost('nama-lengkap')) != '') ? $this->request->getPost('nama-lengkap') : $current_data['nama_lengkap'],
+            'nomor_telepon' => (trim((string) $this->request->getPost('nomor-telepon')) != '') ? $this->request->getPost('nomor-telepon') : $current_data['nomor_telepon'],
+            'wkpp' => (trim((string) $this->request->getPost('wkpp')) != '') ? $this->request->getPost('wkpp') : $current_data['wkpp'],
+            'alamat' => (trim((string) $this->request->getPost('alamat')) != '') ? $this->request->getPost('alamat') : $current_data['alamat'],
+            'tanggal_lahir' => (trim((string) $this->request->getPost('tanggal-lahir')) != '') ? $this->request->getPost('tanggal-lahir') : $current_data['tanggal_lahir'],
+            'pendidikan_terakhir' => (trim((string) $this->request->getPost('pendidikan-terakhir')) != '0') ? $this->request->getPost('pendidikan-terakhir') : $current_data['pendidikan_terakhir']
+        ];
+
+        $penyuluh_model->update($username, $data_penyuluh);
+
+        return redirect()->to('/penyuluh/profile/'.$username);
+    }
 }
