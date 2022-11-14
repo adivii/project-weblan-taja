@@ -74,15 +74,4 @@ class FarmerController extends BaseController
             return redirect()->to('/register');
         }
     }
-
-    public function get_farmer()
-    {
-        $farmer_model = new AccountModel();
-        $events = $farmer_model->where('level = \'Petani\'')->findall();
-
-        $data['title'] = 'Event List';
-        $data['events'] = $events;
-
-        return  $data;
-    }
 }

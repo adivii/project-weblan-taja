@@ -143,4 +143,16 @@ class PenyuluhController extends BaseController
             return redirect()->to('/penyuluh/add');
         }
     }
+
+    public function get_profile($username)
+    {
+        $penyuluh_model = new PenyuluhModel();
+
+        $profile = $penyuluh_model->find($username);
+
+        $data['title'] = 'Taja | Profil Penyuluh';
+        $data['profile'] = $profile;
+
+        return view('penyuluh/profile', $data);
+    }
 }

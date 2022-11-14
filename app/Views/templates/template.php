@@ -49,7 +49,7 @@
                         <?= session()->get('user') ?>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="/<?= session()->get('level') ?>/profile/<?= session()->get('user') ?>">Profile</a></li>
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         <!-- <li>
                             <hr class="dropdown-divider">
