@@ -66,7 +66,50 @@ class PenyuluhController extends BaseController
                     'required' => 'Password wajib diisi!',
                     'matches' => 'Password harus sesuai!'
                 ]
-            ]
+                ],
+                'nik' => [
+                    'rules' => 'required|matches[password]',
+                    'errors' => [
+                        'required' => 'Nik wajib diisi!',
+                    ]
+                    ],
+                    'nama-lengkap' => [
+                        'rules' => 'required|matches[password]',
+                        'errors' => [
+                            'required' => 'Nama-lengkap wajib diisi!',
+                        ]
+               ],
+               'nomor-telepon' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Nomor-telepon wajib diisi!',
+                ]
+                ],
+                'wkpp' => [
+                    'rules' => 'required|min_length[8]',
+                    'errors' => [
+                        'required' => 'Wkpp wajib diisi!',
+                    ]
+                    ],
+                    'alamat' => [
+                        'rules' => 'required|min_length[8]',
+                        'errors' => [
+                            'required' => 'Alamat wajib diisi!',
+                        ]
+                        ],
+                        'tanggal-lahir' => [
+                            'rules' => 'required|min_length[8]',
+                            'errors' => [
+                                'required' => 'Tanggal-lahir wajib diisi!',
+                            ]
+                            ],
+                            'pendidikan-terakhir' => [
+                                'rules' => 'required|min_length[8]',
+                                'errors' => [
+                                    'required' => 'Pendidikan-terakhir wajib diisi!',
+                                ]
+                                ],
+
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->to('/penyuluh/add');
