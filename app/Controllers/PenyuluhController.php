@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AccountModel;
+use App\Models\PenyuluhModel;
 
 class PenyuluhController extends BaseController
 {
@@ -41,7 +42,8 @@ class PenyuluhController extends BaseController
 
     public function save()
     {
-        $model = new AccountModel();
+        $account_model = new AccountModel();
+        $penyuluh_model = new PenyuluhModel();
 
         if (!$this->validate([
             'username' => [
@@ -66,63 +68,75 @@ class PenyuluhController extends BaseController
                     'required' => 'Password wajib diisi!',
                     'matches' => 'Password harus sesuai!'
                 ]
-                ],
-                'nik' => [
-                    'rules' => 'required|matches[password]',
-                    'errors' => [
-                        'required' => 'Nik wajib diisi!',
-                    ]
-                    ],
-                    'nama-lengkap' => [
-                        'rules' => 'required|matches[password]',
-                        'errors' => [
-                            'required' => 'Nama-lengkap wajib diisi!',
-                        ]
-               ],
-               'nomor-telepon' => [
-                'rules' => 'required|min_length[8]',
+            ],
+            'nik' => [
+                'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor-telepon wajib diisi!',
+                    'required' => 'Nik wajib diisi!',
                 ]
-                ],
-                'wkpp' => [
-                    'rules' => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => 'Wkpp wajib diisi!',
-                    ]
-                    ],
-                    'alamat' => [
-                        'rules' => 'required|min_length[8]',
-                        'errors' => [
-                            'required' => 'Alamat wajib diisi!',
-                        ]
-                        ],
-                        'tanggal-lahir' => [
-                            'rules' => 'required|min_length[8]',
-                            'errors' => [
-                                'required' => 'Tanggal-lahir wajib diisi!',
-                            ]
-                            ],
-                            'pendidikan-terakhir' => [
-                                'rules' => 'required|min_length[8]',
-                                'errors' => [
-                                    'required' => 'Pendidikan-terakhir wajib diisi!',
-                                ]
-                                ],
+            ],
+            'nama-lengkap' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap wajib diisi!',
+                ]
+            ],
+            'nomor-telepon' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nomor Telepon wajib diisi!',
+                ]
+            ],
+            'wkpp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Wkpp wajib diisi!',
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat wajib diisi!',
+                ]
+            ],
+            'tanggal-lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Lahir wajib diisi!',
+                ]
+            ],
+            'pendidikan-terakhir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Pendidikan Terakhir wajib diisi!',
+                ]
+            ],
 
         ])) {
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->to('/penyuluh/add');
         }
 
-        $data = [
+        $data_account = [
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'level' => 'Penyuluh'
         ];
 
+        $data_penyuluh = [
+            'username' => $this->request->getPost('username'),
+            'nik' => $this->request->getPost('nik'),
+            'nama_lengkap' => $this->request->getPost('nama-lengkap'),
+            'nomor_telepon' => $this->request->getPost('nomor-telepon'),
+            'wkpp' => $this->request->getPost('wkpp'),
+            'alamat' => $this->request->getPost('alamat'),
+            'tanggal_lahir' => $this->request->getPost('tanggal-lahir'),
+            'pendidikan_terakhir' => $this->request->getPost('pendidikan-terakhir')
+        ];
+
         if ($this->request->getPost('password') == $this->request->getPost('password-re')) {
-            $model->save($data);
+            $account_model->save($data_account);
+            $penyuluh_model->save($data_penyuluh);
 
             return redirect()->to('/admin/dashboard');
         } else {
