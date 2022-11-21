@@ -5,7 +5,7 @@
 <!-- Code Here -->
 
 <div class="container-fluid w-100" style="padding: 60px 100px 0 100px">
-    <form action="/admin/event/update/<?= $event['id'] ?>" method="POST">
+    <form action="/event/update/<?= $event['id'] ?>" method="POST">
         <div class="mb-3">
             <label for="judul_event" class="form-label">Judul</label>
             <input type="text" class="form-control" name="judul_event" id="judul_event" value="<?= $event['judul_event'] ?>" aria-describedby="emailHelp">

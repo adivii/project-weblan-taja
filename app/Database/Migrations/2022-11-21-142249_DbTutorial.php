@@ -23,6 +23,17 @@ class DbTutorial extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '1000',
             ],
+            'cover_image' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'contributor' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'published_date' => [
+                'type'          => 'DATE',
+            ],
         ]);
         // Primary Key
         $this->forge->addKey('id', true);

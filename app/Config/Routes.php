@@ -54,6 +54,8 @@ $routes->get('/event/edit/(:num)', 'EventController::event_update/$1');
 $routes->post('/event/update/(:num)', 'EventController::update/$1');
 $routes->post('/event/save', 'EventController::save');
 $routes->delete('/event/delete/(:num)', 'EventController::delete/$1');
+$routes->get('/tutorial/create', 'TutorialController::tutorial_create');
+$routes->post('/tutorial/save/(:any)', 'TutorialController::save/$1');
 $routes->get('/(:any)', 'Pages::show/$1');
 
 /*

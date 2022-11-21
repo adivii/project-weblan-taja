@@ -20,9 +20,11 @@ class PenyuluhController extends BaseController
 
         $account_model = new AccountModel();
         $event_control = new EventController();
+        $tutorial_control = new TutorialController();
 
         $farmers = $account_model->where('level = \'Farmer\'')->findAll();
         $events = $event_control->get_event()['events'];
+        $tutorials = $tutorial_control->get_by_contributor(session()->get('user'))['tutorials'];
 
         $data['title'] = 'Dashboard';
         if ($events) {
@@ -35,6 +37,18 @@ class PenyuluhController extends BaseController
             $data['farmers_count'] = count($farmers);
         } else {
             $data['farmers_count'] = 0;
+        }
+
+        if ($tutorials) {
+            $data['tutorials_count'] = count($tutorials);
+            if ($data['tutorials_count'] > 5) {
+                $data['tutorials'] = array_slice($tutorials, 0, 5);
+            } else {
+                $data['tutorials'] = $tutorials;
+            }
+        } else {
+            $data['tutorials_count'] = 0;
+            $data['tutorials'] = [];
         }
 
         return view('penyuluh/dashboard', $data);

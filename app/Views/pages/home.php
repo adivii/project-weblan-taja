@@ -1,6 +1,6 @@
 <?= $this->extend('templates/template') ?>
 
-<?= $this->section('head') ?>
+<?= $this->section('header') ?>
 
 <?= $this->endSection() ?>
 
